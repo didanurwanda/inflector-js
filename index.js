@@ -1,22 +1,11 @@
 'use strict';
 
 /**
- * @link http://www.phpframeworkstudio.com
- * @copyright Copyright (c) 2016 PHP Framework Studio
- * @license http://www.phpframeworkstudio.com/license
- */
-
-/**
  * Javascript inflector
  * 
  * @author Dida Nurwanda <didanurwanda@gmail.com>
  * @since 1.0
  */
-
-/**
- * This source code developed from http://code.google.com/p/inflection-js/
- */
-
 
 var _Inflector = {
 
