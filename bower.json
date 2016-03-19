@@ -1,0 +1,25 @@
+{
+  "name": "inflector-js",
+  "description": "Inflector pluralizes and singularizes English nouns. It also contains some other useful methods.",
+  "main": "index.js",
+  "authors": [
+    "Dida Nurwanda <didanurwanda@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "javascript",
+    "nodejs",
+    "requirejs",
+    "inflector",
+    "inflector-js"
+  ],
+  "moduleType": [],
+  "homepage": "https://github.com/didanurwanda/inflector-js",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
