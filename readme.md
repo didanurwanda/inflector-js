@@ -1,43 +1,41 @@
 # INFLECTOR-JS
 
-Inflector pluralizes and singularizes English nouns. It also contains some other useful methods.
+A tiny utility for pluralizing, singularizing, and formatting English words — perfect for code and labels.
 
-### Download
+## Installation
 
-NPM
-
-```
-npm install inflector-js --save
-```
-
-BOWER
+### Install via NPM
 
 ```
-bower install inflector-js --save
+npm install inflector-js
 ```
 
-or download [here](https://github.com/didanurwanda/inflector-js/archive/master.zip)
+### Manual Download
 
-### How to use
+[Last Release](https://github.com/didanurwanda/inflector-js/releases)
+
+## How to use
 
 Node JS
+### Common JS
 
-```JavaScript
+```js
 var Inflector = require('inflector-js')
 ```
 
-RequireJS
+### ESM
+```js
+import Inflector from 'inflector-js';
+console.log(Inflector.camelize('message_properties'))
 
-```JavaScript
-define(['bower_components/inflector-js/index'], function(Inflector) {
-    // your code
-});
+import { humanize } from 'inflector-js';
+console.log(humanize('message_properties'))
 ```
+### Browser
+```html
+<script type="text/javascript" src="assets/inflector-js/dist/index.global.js"></script>
 
-Manual
-
-```
-<script type="text/javascript" src="bower_components/inflector-js/index.js"></script>
+console.log(Inflector.camelize('message_properties'));
 ```
 
 ## API
@@ -102,7 +100,7 @@ Inflector.dasherize('message properties')       -> 'message-properties'
 ```
 Inflector.camel2words('message_properties')         -> 'Message Properties'
 Inflector.camel2words('message properties')         -> 'Message Properties'
-Inflactor.camel2words('Message_propertyId', true)   -> 'Message Properties Id'
+Inflector.camel2words('Message_propertyId', true)   -> 'Message Properties Id'
 ```
 
 * demodulize
@@ -111,7 +109,7 @@ Inflactor.camel2words('Message_propertyId', true)   -> 'Message Properties Id'
 Inflector.demodulize('Message::Bus::Properties')    -> 'Properties'
 ```
 
-* tabelize
+* tableize
 
 ```
 Inflector.tableize('MessageBusProperty')    -> 'message_bus_properties'
@@ -135,3 +133,14 @@ Inflector.foreignKey('MessageBusProperty', true) -> 'message_bus_propertyid'
 ```
 Inflector.ordinalize('the 1 pitch')     -> 'the 1st pitch'
 ```
+
+## Author
+
+Created and maintained by **Dida Nurwanda**  
+[didanurwanda@gmail.com](mailto:didanurwanda@gmail.com)
+
+---
+
+## License
+
+This project is licensed under the **MIT**. See the [LICENSE](./LICENSE) file for more details.

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Inflector JS Test (IIFE)</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 2rem;
+      background: #f9f9f9;
+    }
+    h1 {
+      font-size: 1.5rem;
+    }
+    ul {
+      background: white;
+      padding: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      list-style: none;
+    }
+    li {
+      margin: 0.3rem 0;
+      padding: 0.3rem;
+      border-bottom: 1px solid #eee;
+    }
+    li:last-child {
+      border-bottom: none;
+    }
+    .label {
+      font-weight: bold;
+      color: #333;
+    }
+    .result {
+      color: #007acc;
+    }
+  </style>
+</head>
+<body>
+  <h1>Inflector JS Test Results</h1>
+  <ul id="result-list">
+    <li>Loading...</li>
+  </ul>
+
+  <!-- Load hasil build iife dari dist -->
+  <script src="./../dist/index.global.js"></script>
+  <script>
+    window.addEventListener('load', () => {
+      const {
+        pluralize,
+        singularize,
+        camelize,
+        underscore,
+        humanize,
+        capitalize,
+        dasherize,
+        camel2words,
+        demodulize,
+        tableize,
+        classify,
+        foreignKey,
+        ordinalize
+      } = window.Inflector;
+
+      const results = [
+        ['pluralize("person")', pluralize('person')],
+        ['singularize("people")', singularize('people')],
+        ['camelize("message_properties")', camelize('message_properties')],
+        ['camelize("message_properties", true)', camelize('message_properties', true)],
+        ['underscore("MessageProperties")', underscore('MessageProperties')],
+        ['humanize("message_properties")', humanize('message_properties')],
+        ['humanize("message_properties", true)', humanize('message_properties', true)],
+        ['capitalize("message properties")', capitalize('message properties')],
+        ['dasherize("message_properties")', dasherize('message_properties')],
+        ['dasherize("message properties")', dasherize('message properties')],
+        ['camel2words("message_properties")', camel2words('message_properties')],
+        ['camel2words("Message_propertyId", true)', camel2words('Message_propertyId', true)],
+        ['demodulize("Message::Bus::Properties")', demodulize('Message::Bus::Properties')],
+        ['tableize("MessageBusProperty")', tableize('MessageBusProperty')],
+        ['classify("message_bus_properties")', classify('message_bus_properties')],
+        ['foreignKey("MessageBusProperty")', foreignKey('MessageBusProperty')],
+        ['foreignKey("MessageBusProperty", true)', foreignKey('MessageBusProperty', true)],
+        ['ordinalize("the 1 pitch")', ordinalize('the 1 pitch')],
+      ];
+
+      const list = document.getElementById('result-list');
+      list.innerHTML = ''; // Clear "Loading..."
+
+      results.forEach(([label, result]) => {
+        const li = document.createElement('li');
+        li.innerHTML = `<span class="label">${label}</span> => <span class="result">${result}</span>`;
+        list.appendChild(li);
+      });
+    });
+  </script>
+</body>
+</html>
