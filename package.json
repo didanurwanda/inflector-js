@@ -1,7 +1,7 @@
 {
   "name": "inflector-js",
-  "version": "2.0.0",
-  "description": "A tiny utility for pluralizing, singularizing, and formatting English words — perfect for code and labels.",
+  "version": "2.0.1",
+  "description": "A lightweight JavaScript utility for smart word transformations – from singular to plural, snake_case to camelCase, and everything in between.",
   "type": "module",
   "main": "./dist/index.cjs",
   "exports": {
@@ -14,7 +14,7 @@
     "test2": "node test/test2.js",
     "build": "tsup"
   },
-  "author": "Dida Nurwanda",
+  "author": "Dida Nurwanda <didanurwanda@gmail.com>",
   "license": "MIT",
   "repository": {
     "type": "git",

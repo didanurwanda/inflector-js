@@ -132,8 +132,6 @@ var Inflector = {
   idSuffix: new RegExp("(_ids|_id)$", "g"),
   underbar: new RegExp("_", "g"),
   spaceOrUnderbar: new RegExp("[ _]", "g"),
-  uppercase: new RegExp("([A-Z])", "g"),
-  underbarPrefix: new RegExp("^_"),
   applyRules: function(str, rules, skip, override) {
     if (override) {
       str = override;
@@ -200,7 +198,8 @@ var Inflector = {
    * Inflector.camelize('message_properties')        -> 'MessageProperties'
    * Inflector.camelize('message_properties', true)  -> 'messageProperties'
    */
-  camelize: function(str, lowFirstLetter) {
+  camelize: function(str, lowFirstLetter = false) {
+    str = str.replace(/\s+/g, "_");
     var str_path = str.split("/");
     for (var i = 0; i < str_path.length; i++) {
       var str_arr = str_path[i].split("_");
@@ -228,13 +227,10 @@ var Inflector = {
    * Inflector.underscore('messageProperties')       -> 'message_properties'
    */
   underscore: function(str) {
-    var str_path = str.split("::");
-    for (var i = 0; i < str_path.length; i++) {
-      str_path[i] = str_path[i].replace(Inflector.uppercase, "_$1");
-      str_path[i] = str_path[i].replace(Inflector.underbarPrefix, "");
-    }
-    str = str_path.join("/").toLowerCase();
-    return str;
+    let withSpaces = str.replace(/([a-z])([A-Z])/g, "$1 $2").toLowerCase();
+    let cleaned = withSpaces.replace(/[^0-9a-zA-Z]/g, " ");
+    let formatted = cleaned.trim().replace(/\s+/g, "_");
+    return formatted;
   },
   /**
    * Converts a string to a human-readable format.
